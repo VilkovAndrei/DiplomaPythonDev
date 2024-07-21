@@ -10,19 +10,19 @@ class UserPermissionsDestroy(BasePermission):
             return False
 
 
-# class IsModerator(BasePermission):
-#     """Доступно модераторам."""
-#
-#     def has_permission(self, request, view):
-#         return request.user.groups.filter(name='moderator').exists()
-#
-#     def has_object_permission(self, request, view, obj):
-#         if request.user.groups.filter(name='moderator').exists():
-#             return True
-#         return False
+class IsManager(BasePermission):
+    """Доступно менеджерам."""
+
+    def has_permission(self, request, view):
+        return request.user.groups.filter(name='manager').exists()
+
+    def has_object_permission(self, request, view, obj):
+        if request.user.groups.filter(name='manager').exists():
+            return True
+        return False
 
 
-class IsOwner(BasePermission):
+class UserIsOwner(BasePermission):
     """Доступно владельцам."""
 
     def has_object_permission(self, request, view, obj):

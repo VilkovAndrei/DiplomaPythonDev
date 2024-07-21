@@ -4,7 +4,8 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import IsAuthenticated
 
 from users.models import User
-from users.permissions import UserPermissionsDestroy, IsOwner
+from users.paginators import UsersPagination
+from users.permissions import UserPermissionsDestroy, UserIsOwner
 from users.serializers import (UserSerializer, UserDetailSerializer, UserLimitedSerializer,
                                MyTokenObtainPairSerializer)
 
@@ -15,9 +16,16 @@ class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
 
 
-class UserViewSet(viewsets.ModelViewSet):
+# class UserViewSet(viewsets.ModelViewSet):
+#     serializer_class = UserSerializer
+#     queryset = User.objects.all()
+
+
+class UserListView(generics.ListAPIView):
     serializer_class = UserSerializer
     queryset = User.objects.all()
+    permission_classes = [UserPermissionsDestroy]
+    pagination_class = UsersPagination
 
 
 class UserCreateView(generics.CreateAPIView):
@@ -32,7 +40,7 @@ class UserCreateView(generics.CreateAPIView):
 class UserRetrieveView(generics.RetrieveAPIView):
     # serializer_class = UserDetailSerializer
     queryset = User.objects.all()
-    permission_classes = [IsOwner]
+    permission_classes = [UserIsOwner]
 
     def get_serializer_class(self):
         if self.request.user.is_superuser:
@@ -45,7 +53,7 @@ class UserRetrieveView(generics.RetrieveAPIView):
 class UserUpdateView(generics.UpdateAPIView):
     serializer_class = UserSerializer
     queryset = User.objects.all()
-    permission_classes = [IsOwner]
+    permission_classes = [UserIsOwner]
 
 
 class UserDestroyView(generics.DestroyAPIView):

@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'django_filters',
     'django_celery_beat',
     'users',
+    'library',
 ]
 
 MIDDLEWARE = [
