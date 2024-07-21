@@ -32,7 +32,7 @@ class Book(models.Model):
     """Модель книги"""
     title = models.CharField(max_length=255, verbose_name='Название')
     authors = models.ManyToManyField(Author, related_name="authors", verbose_name='Авторы')
-    genre = models.ForeignKey(Genre, on_delete=models.CASCADE, verbose_name='Жанр', related_name='genre')
+    genre = models.ForeignKey(Genre, on_delete=models.CASCADE, verbose_name='Жанр', related_name='books')
     publishing_house = models.CharField(max_length=100, verbose_name='Издательство')
     year = models.PositiveIntegerField(verbose_name='Год издания')
     pages = models.PositiveIntegerField(verbose_name='Количество страниц')

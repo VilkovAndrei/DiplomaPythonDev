@@ -17,7 +17,24 @@ class AuthorCreateAPIView(generics.CreateAPIView):
     permission_classes = [IsManager]
 
 
-class AuthorListView(generics.ListAPIView):
+class AuthorRetrieveAPIView(generics.RetrieveAPIView):
+    serializer_class = AuthorSerializer
+    queryset = Author.objects.all()
+    permission_classes = [IsAuthenticated]
+
+
+class AuthorUpdateAPIView(generics.UpdateAPIView):
+    serializer_class = AuthorSerializer
+    queryset = Author.objects.all()
+    permission_classes = [IsAuthenticated]
+
+
+class AuthorDestroyAPIView(generics.DestroyAPIView):
+    queryset = Author.objects.all()
+    permission_classes = [IsManager]
+
+
+class AuthorListAPIView(generics.ListAPIView):
     serializer_class = AuthorSerializer
     queryset = Author.objects.all()
     permission_classes = [IsManager]
@@ -29,11 +46,28 @@ class GenreCreateAPIView(generics.CreateAPIView):
     permission_classes = [IsManager]
 
 
-class GenreListView(generics.ListAPIView):
+class GenreListAPIView(generics.ListAPIView):
     serializer_class = GenreSerializer
     queryset = Genre.objects.all()
     permission_classes = [IsManager]
     pagination_class = BooksPagination
+
+
+class GenreRetrieveAPIView(generics.RetrieveAPIView):
+    serializer_class = GenreSerializer
+    queryset = Genre.objects.all()
+    permission_classes = [IsAuthenticated]
+
+
+class GenreUpdateAPIView(generics.UpdateAPIView):
+    serializer_class = GenreSerializer
+    queryset = Genre.objects.all()
+    permission_classes = [IsAuthenticated]
+
+
+class GenreDestroyAPIView(generics.DestroyAPIView):
+    queryset = Genre.objects.all()
+    permission_classes = [IsManager]
 
 
 class BookCreateAPIView(generics.CreateAPIView):
@@ -43,23 +77,54 @@ class BookCreateAPIView(generics.CreateAPIView):
 
 class BookListAPIView(generics.ListAPIView):
     serializer_class = BookSerializer
-    queryset = Book.objects.all()
-    permission_classes = [IsManager]
+    # queryset = Book.objects.all().order_by('id')
+    queryset = Book.objects.all().prefetch_related('authors').order_by('id')
+    permission_classes = [IsAuthenticated]
     pagination_class = BooksPagination
 
 
 class BookRetrieveAPIView(generics.RetrieveAPIView):
     serializer_class = BookSerializer
     queryset = Book.objects.all()
-    permission_classes = [IsManager]
+    permission_classes = [IsAuthenticated]
 
 
 class BookUpdateAPIView(generics.UpdateAPIView):
     serializer_class = BookSerializer
     queryset = Book.objects.all()
-    permission_classes = [IsManager]
+    permission_classes = [IsAuthenticated]
 
 
 class BookDestroyAPIView(generics.DestroyAPIView):
     queryset = Book.objects.all()
+    permission_classes = [IsManager]
+
+
+class InstancebookCreateAPIView(generics.CreateAPIView):
+    serializer_class = InstanceBookSerializer
+    permission_classes = [IsManager]
+
+
+class InstancebookListAPIView(generics.ListAPIView):
+    serializer_class = InstanceBookSerializer
+    # queryset = Book.objects.all().order_by('id')
+    queryset = InstanceBook.objects.all().select_related('book').order_by('id')
+    permission_classes = [IsAuthenticated]
+    pagination_class = BooksPagination
+
+
+class InstancebookRetrieveAPIView(generics.RetrieveAPIView):
+    serializer_class = InstanceBookSerializer
+    queryset = InstanceBook.objects.all()
+    permission_classes = [IsAuthenticated]
+
+
+class InstancebookUpdateAPIView(generics.UpdateAPIView):
+    serializer_class = InstanceBookSerializer
+    queryset = InstanceBook.objects.all()
+    permission_classes = [IsAuthenticated]
+
+
+class InstancebookDestroyAPIView(generics.DestroyAPIView):
+    queryset = InstanceBook.objects.all()
     permission_classes = [IsManager]

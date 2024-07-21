@@ -21,7 +21,7 @@ class GenreAdmin(admin.ModelAdmin):
 class BookAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'genre', 'publishing_house', 'year', 'pages', 'description')
     list_filter = ('genre', 'year',)
-    search_fields = ('title',)
+    search_fields = ('title','authors',)
 
 
 @admin.register(InstanceBook)
