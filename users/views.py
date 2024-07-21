@@ -32,7 +32,7 @@ class UserCreateView(generics.CreateAPIView):
 class UserRetrieveView(generics.RetrieveAPIView):
     # serializer_class = UserDetailSerializer
     queryset = User.objects.all()
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsOwner]
 
     def get_serializer_class(self):
         if self.request.user.is_superuser:
