@@ -44,25 +44,19 @@ class BookSerializer(serializers.ModelSerializer):
 class BookDetailSerializer(serializers.ModelSerializer):
     authors = AuthorSerializer(many=True, read_only=True)
     genre = GenreSerializer(many=False, read_only=True)
-    instance_count = SerializerMethodField()
     instance_books = SerializerMethodField()
 
     class Meta:
         model = Book
-        fields = ('title', 'authors', 'genre', 'description', 'publishing_house', 'year', 'pages', 'instance_count', 'instance_books')
+        fields = ('title', 'authors', 'genre', 'description', 'publishing_house', 'year', 'pages', 'instance_books')
         read_only_fields = fields
 
     @staticmethod
-    def get_instance_count(instance):
-        return InstanceBook.objects.filter(book=instance).count()
-
-    @staticmethod
     def get_instance_books(instance):
-        return InstanceBookSerializer(InstanceBook.objects.prefetch_related('book').filter(book=instance), many=True).data
+        return InstanceBookSerializer(InstanceBook.objects.prefetch_related('instance_book').filter(book=instance), many=True).data
 
 
 class InstanceBookSerializer(serializers.ModelSerializer):
     class Meta:
         model = InstanceBook
         fields = '__all__'
-

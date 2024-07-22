@@ -31,8 +31,8 @@ class Genre(models.Model):
 class Book(models.Model):
     """Модель книги"""
     title = models.CharField(max_length=255, verbose_name='Название')
-    authors = models.ManyToManyField(Author, related_name="authors", verbose_name='Авторы')
-    genre = models.ForeignKey(Genre, on_delete=models.CASCADE, verbose_name='Жанр', related_name='books')
+    authors = models.ManyToManyField(Author, related_name="book_authors", verbose_name='Авторы')
+    genre = models.ForeignKey(Genre, on_delete=models.CASCADE, verbose_name='Жанр', related_name='book_genre')
     publishing_house = models.CharField(max_length=100, verbose_name='Издательство')
     year = models.PositiveIntegerField(verbose_name='Год издания')
     pages = models.PositiveIntegerField(verbose_name='Количество страниц')
@@ -56,7 +56,7 @@ class InstanceBook(models.Model):
         ISSUED = "Выдана", "Выдана"
         DISCARDED = "Списана", "Списана"
 
-    book = models.ForeignKey(Book, on_delete=models.CASCADE, verbose_name='Книга', related_name='book')
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, verbose_name='Книга', related_name='instance_book')
     inventory = models.CharField(max_length=24, unique=True, verbose_name='Инвентарный номер')
     status = models.CharField(max_length=50, default=StatusBook.IN_STOCK,
                                       choices=StatusBook, verbose_name='Статус экземпляра книги')
@@ -72,8 +72,9 @@ class InstanceBook(models.Model):
 class DistributionBook(models.Model):
     """Модель выдачи экземпляра книги"""
     instance_book = models.ForeignKey(InstanceBook, on_delete=models.CASCADE, verbose_name='Экземпляр книги',
-                                      related_name='instance_book')
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, verbose_name='Пользователь',
-                             null=True)
+                                      related_name='distribution_book')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Пользователь',
+                             related_name='distribution_user')
     issue_date = models.DateTimeField(auto_now=True, verbose_name="Дата выдачи")
     return_date = models.DateTimeField(verbose_name="Дата возврата")
+    is_completed = models.BooleanField(default=False, verbose_name="Признак возврата")

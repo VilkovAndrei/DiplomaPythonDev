@@ -1,17 +1,15 @@
 from django.urls import path
 
 from library.apps import LibraryConfig
-from rest_framework.routers import DefaultRouter
 
 from library.views import BookListAPIView, BookCreateAPIView, BookRetrieveAPIView, BookUpdateAPIView, \
     BookDestroyAPIView, AuthorCreateAPIView, AuthorListAPIView, AuthorRetrieveAPIView, AuthorUpdateAPIView, \
     AuthorDestroyAPIView, GenreCreateAPIView, GenreListAPIView, GenreRetrieveAPIView, GenreUpdateAPIView, \
     GenreDestroyAPIView, InstancebookCreateAPIView, InstancebookListAPIView, InstancebookRetrieveAPIView, \
-    InstancebookUpdateAPIView, InstancebookDestroyAPIView
+    InstancebookUpdateAPIView, InstancebookDestroyAPIView, DistributionBookCreateAPIView, DistributionBookListAPIView, \
+    DistributionBookRetrieveAPIView, DistributionBookUpdateAPIView, DistributionBookDestroyAPIView
 
 app_name = LibraryConfig.name
-# router = DefaultRouter()
-# router.register(r'course', CourseViewSet, basename='course')
 
 urlpatterns = [
       path('book/create/', BookCreateAPIView.as_view(), name='book_create'),
@@ -29,10 +27,14 @@ urlpatterns = [
       path('genre/view/<int:pk>/', GenreRetrieveAPIView.as_view(), name='genre_view'),
       path('genre/update/<int:pk>/', GenreUpdateAPIView.as_view(), name='genre_update'),
       path('genre/delete/<int:pk>/', GenreDestroyAPIView.as_view(), name='genre_delete'),
-      path('instancebook/create/', InstancebookCreateAPIView.as_view(), name='instancebook_create'),
-      path('instancebook/list/', InstancebookListAPIView.as_view(), name='instancebook_list'),
-      path('instancebook/view/<int:pk>/', InstancebookRetrieveAPIView.as_view(), name='instancebook_view'),
-      path('instancebook/update/<int:pk>/', InstancebookUpdateAPIView.as_view(), name='instancebook_update'),
-      path('instancebook/delete/<int:pk>/', InstancebookDestroyAPIView.as_view(), name='instancebook_delete'),
+      path('instbook/create/', InstancebookCreateAPIView.as_view(), name='instancebook_create'),
+      path('instbook/list/', InstancebookListAPIView.as_view(), name='instancebook_list'),
+      path('instbook/view/<int:pk>/', InstancebookRetrieveAPIView.as_view(), name='instancebook_view'),
+      path('instbook/update/<int:pk>/', InstancebookUpdateAPIView.as_view(), name='instancebook_update'),
+      path('instbook/delete/<int:pk>/', InstancebookDestroyAPIView.as_view(), name='instancebook_delete'),
+      path('distrbook/create/', DistributionBookCreateAPIView.as_view(), name='distributionbook_create'),
+      path('distrbook/list/', DistributionBookListAPIView.as_view(), name='distributionbook_list'),
+      path('distrbook/view/<int:pk>/', DistributionBookRetrieveAPIView.as_view(), name='distributionbook_view'),
+      path('distrbook/update/<int:pk>/', DistributionBookUpdateAPIView.as_view(), name='distributionbook_update'),
+      path('distrbook/delete/<int:pk>/', DistributionBookDestroyAPIView.as_view(), name='distributionbook_delete'),
 ]
-
