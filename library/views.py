@@ -19,13 +19,13 @@ class AuthorViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         if self.action == 'create':
-            self.permission_classes = [IsAuthenticated & IsManager]
+            self.permission_classes = [IsAuthenticated]
         elif self.action == 'list':
             self.permission_classes = [IsAuthenticated]
         elif self.action in ['retrieve', 'update']:
-            self.permission_classes = [IsManager]
+            self.permission_classes = [IsAuthenticated]
         elif self.action == 'destroy':
-            self.permission_classes = [IsManager]
+            self.permission_classes = [IsAuthenticated]
         return [permission() for permission in self.permission_classes]
 
 
@@ -36,13 +36,13 @@ class GenreViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         if self.action == 'create':
-            self.permission_classes = [IsAuthenticated & IsManager]
+            self.permission_classes = [IsAuthenticated]
         elif self.action == 'list':
             self.permission_classes = [IsAuthenticated]
         elif self.action in ['retrieve', 'update']:
-            self.permission_classes = [IsManager]
+            self.permission_classes = [IsAuthenticated]
         elif self.action == 'destroy':
-            self.permission_classes = [IsManager]
+            self.permission_classes = [IsAuthenticated]
         return [permission() for permission in self.permission_classes]
 
 
@@ -53,7 +53,6 @@ class BookCreateAPIView(generics.CreateAPIView):
 
 class BookListAPIView(generics.ListAPIView):
     serializer_class = BookSerializer
-    # queryset = get_book_list()
     permission_classes = [IsAuthenticated]
     pagination_class = BooksPagination
 
