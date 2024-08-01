@@ -1,7 +1,4 @@
-from rest_framework import viewsets, generics, serializers
-from rest_framework.filters import OrderingFilter
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.permissions import IsAuthenticated
+from rest_framework import generics
 
 from users.models import User
 from users.paginators import UsersPagination
@@ -14,11 +11,6 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
-
-
-# class UserViewSet(viewsets.ModelViewSet):
-#     serializer_class = UserSerializer
-#     queryset = User.objects.all()
 
 
 class UserListView(generics.ListAPIView):

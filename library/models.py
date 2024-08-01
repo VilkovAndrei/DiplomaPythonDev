@@ -29,7 +29,6 @@ class Language(models.Model):
 
 class Author(models.Model):
     """Модель автора книги"""
-    # name = models.CharField(max_length=100, verbose_name='Имя, фамилия')
     first_name = models.CharField(max_length=100, default='A', verbose_name='Имя')
     last_name = models.CharField(max_length=100, default='A', verbose_name='Фамилия')
     date_of_birth = models.DateField(null=True, blank=True, verbose_name='Родился')

@@ -14,7 +14,7 @@ logger.add("logs/mailing.log", format="{time} {level} {message}", level="INFO", 
 
 @shared_task
 def send_mailing():
-    subject = "Напоминание о сроке возврата книги в библиотеку "
+    subject = "Напоминание о сроке возврата книги в библиотеку: "
     message = ("Здравствуйте! Срок возврата книг(и) в библиотеку прошел. Если Вы хотите изменить срок возврата,"
                " пожалуйста, свяжитесь с нами.")
 
@@ -40,5 +40,5 @@ def send_mailing():
                 logger.info(server_response)
 
             except smtplib.SMTPResponseException as response:
-                server_response = str(response)
+                server_response = f"Напоминание пользователю {current_user.email} о сроке возврата книги" + str(response)
                 logger.info(server_response)

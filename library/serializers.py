@@ -79,7 +79,7 @@ class InstanceBookSerializer(serializers.ModelSerializer):
 
 
 class DistributionBookSerializer(serializers.ModelSerializer):
-    # instance_book = InstanceBookSerializer(read_only=True)
+    instance_book = InstanceBookSerializer(read_only=True)
 
     class Meta:
         model = DistributionBook

@@ -4,6 +4,7 @@ from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework.fields import SerializerMethodField
 
+from library.services_db import get_distribution_book_list
 from users.models import User
 
 
@@ -28,8 +29,7 @@ class UserDetailSerializer(serializers.ModelSerializer):
 
     @staticmethod
     def get_distr_books(instance):
-        pass
-        # return PaymentSerializer(Payment.objects.filter(user=instance), many=True).data
+        return get_distribution_book_list(instance)
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
