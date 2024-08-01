@@ -196,10 +196,10 @@ CELERY_TASK_TRACK_STARTED = True
 
 # Максимальное время на выполнение задачи
 CELERY_TASK_TIME_LIMIT = 30 * 600
-#
-# CELERY_BEAT_SCHEDULE = {
-#     'reminder_service': {
-#         'task': 'library.tasks.reminder_service',  # Путь к задаче
-#         'schedule': timedelta(days=1),  # Расписание выполнения задачи
-#     },
-# }
+
+CELERY_BEAT_SCHEDULE = {
+    'send_mailing': {
+        'task': 'library.tasks.send_mailing',  # Путь к задаче
+        'schedule': timedelta(minutes=5),  # Расписание выполнения задачи
+    },
+}

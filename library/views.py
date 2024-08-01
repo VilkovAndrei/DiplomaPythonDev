@@ -19,13 +19,13 @@ class AuthorViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         if self.action == 'create':
-            self.permission_classes = [IsAuthenticated]
+            self.permission_classes = [IsManager]
         elif self.action == 'list':
-            self.permission_classes = [IsAuthenticated]
+            self.permission_classes = [IsAuthenticated | IsManager]
         elif self.action in ['retrieve', 'update']:
-            self.permission_classes = [IsAuthenticated]
+            self.permission_classes = [IsManager]
         elif self.action == 'destroy':
-            self.permission_classes = [IsAuthenticated]
+            self.permission_classes = [IsManager]
         return [permission() for permission in self.permission_classes]
 
 
@@ -36,13 +36,13 @@ class GenreViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         if self.action == 'create':
-            self.permission_classes = [IsAuthenticated]
+            self.permission_classes = [IsManager]
         elif self.action == 'list':
-            self.permission_classes = [IsAuthenticated]
+            self.permission_classes = [IsAuthenticated | IsManager]
         elif self.action in ['retrieve', 'update']:
-            self.permission_classes = [IsAuthenticated]
+            self.permission_classes = [IsManager]
         elif self.action == 'destroy':
-            self.permission_classes = [IsAuthenticated]
+            self.permission_classes = [IsManager]
         return [permission() for permission in self.permission_classes]
 
 

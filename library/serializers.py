@@ -92,8 +92,6 @@ class DistributionBookSerializer(serializers.ModelSerializer):
         instance.save()
         instance_book_id = instance.instance_book.id
         logger.info(f'Статус экземпляра книги id:{instance_book_id} будет обновлён на ВЫДАНА')
-        # if instance_book_data:
-        #     instance_book_id = instance_book_data.get("id")
         inst_obj = None
         if instance_book_id:
             inst_obj = InstanceBook.objects.get(id=instance_book_id)

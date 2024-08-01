@@ -1,3 +1,4 @@
+from django.contrib.auth.models import Permission, Group
 from rest_framework import status
 from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase, APIClient
@@ -13,6 +14,10 @@ class TestCaseBase(APITestCase):
         user.set_password('1234')
         user.save()
         self.user = user
+        created_group = Group.objects.create(name='manager')
+
+        # group = Group.objects.get(name='manager')
+        self.user.groups.add(created_group)
         refresh = RefreshToken.for_user(self.user)
         return {"HTTP_AUTHORIZATION": f'Bearer {refresh.access_token}'}
 
