@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-dot_env = os.path.join(BASE_DIR, '.env')
+dot_env = os.path.join(BASE_DIR, '.env_local')
 load_dotenv(dotenv_path=dot_env)
 
 PSQL_PSW = os.getenv('PostgreSQL_PSW')
@@ -200,6 +200,6 @@ CELERY_TASK_TIME_LIMIT = 30 * 600
 CELERY_BEAT_SCHEDULE = {
     'send_mailing': {
         'task': 'library.tasks.send_mailing',  # Путь к задаче
-        'schedule': timedelta(minutes=5),  # Расписание выполнения задачи
+        'schedule': timedelta(days=1),  # Расписание выполнения задачи
     },
 }

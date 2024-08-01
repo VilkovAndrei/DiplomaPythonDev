@@ -110,7 +110,7 @@ class DistributionBookSerializer(serializers.ModelSerializer):
         instance.issue_date = validated_data.get('issue_date', instance.issue_date)
         instance.return_date = validated_data.get('return_date', instance.return_date)
         instance.is_completed = validated_data.get('is_completed', instance.is_completed)
-        # is_completed = validated_data.get("is_completed")
+
         if instance.is_completed:
             logger.info(f'Статус выдачи экземпляра книги id:{instance_book_id} - Книга возвращена.')
             if instance_book_id:
