@@ -21,7 +21,8 @@ def send_mailing():
 
     zone = pytz.timezone(settings.TIME_ZONE)
     current_date = datetime.now(zone).date()
-    distr_books = DistributionBook.objects.select_related("instance_book").filter(return_date__lte=current_date, is_completed=False).order_by('user')
+    distr_books = DistributionBook.objects.select_related("instance_book").filter(return_date__lt=current_date,
+                                                                                  is_completed=False).order_by('user')
     logger.info(f"Количество выданных книг с прошедшим сроком возврата - {len(distr_books)}")
     previous_user = None
     for distr_book in distr_books:
