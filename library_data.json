@@ -1,0 +1,556 @@
+[
+  {
+    "model": "library.language",
+    "pk": 1,
+    "fields": {
+      "name": "русский"
+    }
+  },
+  {
+    "model": "library.language",
+    "pk": 2,
+    "fields": {
+      "name": "английский"
+    }
+  },
+  {
+    "model": "library.language",
+    "pk": 3,
+    "fields": {
+      "name": "итальянский"
+    }
+  },
+  {
+    "model": "library.language",
+    "pk": 4,
+    "fields": {
+      "name": "немецкий"
+    }
+  },
+  {
+    "model": "library.language",
+    "pk": 5,
+    "fields": {
+      "name": "французский"
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 1,
+    "fields": {
+      "first_name": "Олег",
+      "last_name": "Рой",
+      "date_of_birth": null,
+      "date_of_death": null
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 2,
+    "fields": {
+      "first_name": "Владимир",
+      "last_name": "Мегре",
+      "date_of_birth": "1950-07-23",
+      "date_of_death": null
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 3,
+    "fields": {
+      "first_name": "Барбара Тейлор",
+      "last_name": "Брэдфорд",
+      "date_of_birth": null,
+      "date_of_death": null
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 4,
+    "fields": {
+      "first_name": "В",
+      "last_name": "Редер",
+      "date_of_birth": null,
+      "date_of_death": null
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 5,
+    "fields": {
+      "first_name": "Шарлотта",
+      "last_name": "Бронте",
+      "date_of_birth": null,
+      "date_of_death": null
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 6,
+    "fields": {
+      "first_name": "Aртур Конан",
+      "last_name": "Дойл",
+      "date_of_birth": null,
+      "date_of_death": null
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 7,
+    "fields": {
+      "first_name": "Aлександр",
+      "last_name": "Пушкин",
+      "date_of_birth": null,
+      "date_of_death": null
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 8,
+    "fields": {
+      "first_name": "Марк",
+      "last_name": "Твен",
+      "date_of_birth": null,
+      "date_of_death": null
+    }
+  },
+  {
+    "model": "library.genre",
+    "pk": 1,
+    "fields": {
+      "title": "Роман"
+    }
+  },
+  {
+    "model": "library.genre",
+    "pk": 2,
+    "fields": {
+      "title": "Фэнтези"
+    }
+  },
+  {
+    "model": "library.genre",
+    "pk": 3,
+    "fields": {
+      "title": "Повесть"
+    }
+  },
+  {
+    "model": "library.genre",
+    "pk": 4,
+    "fields": {
+      "title": "Рассказ"
+    }
+  },
+  {
+    "model": "library.genre",
+    "pk": 5,
+    "fields": {
+      "title": "Комедия"
+    }
+  },
+  {
+    "model": "library.genre",
+    "pk": 6,
+    "fields": {
+      "title": "Трагедия"
+    }
+  },
+  {
+    "model": "library.genre",
+    "pk": 7,
+    "fields": {
+      "title": "Сказка"
+    }
+  },
+  {
+    "model": "library.genre",
+    "pk": 8,
+    "fields": {
+      "title": "Детектив"
+    }
+  },
+  {
+    "model": "library.genre",
+    "pk": 9,
+    "fields": {
+      "title": "Триллер"
+    }
+  },
+  {
+    "model": "library.genre",
+    "pk": 10,
+    "fields": {
+      "title": "Утопия"
+    }
+  },
+  {
+    "model": "library.genre",
+    "pk": 11,
+    "fields": {
+      "title": "Драма"
+    }
+  },
+  {
+    "model": "library.genre",
+    "pk": 12,
+    "fields": {
+      "title": "Стихи"
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 1,
+    "fields": {
+      "title": "Двойная жизнь",
+      "author": 1,
+      "publishing_house": "Москва: Издательство \"Э\"",
+      "year": 2016,
+      "pages": 320,
+      "language": 1,
+      "description": "",
+      "isbn": "978-5-699-85994-8",
+      "genre": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 2,
+    "fields": {
+      "title": "Старьевщица",
+      "author": 1,
+      "publishing_house": "М.: Эксмо",
+      "year": 2013,
+      "pages": 352,
+      "language": 1,
+      "description": "",
+      "isbn": "978-5-699-62160-5",
+      "genre": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 3,
+    "fields": {
+      "title": "Анастасия",
+      "author": 2,
+      "publishing_house": "Ростов-на -Дону: Проф-Пресс",
+      "year": 1998,
+      "pages": 448,
+      "language": 1,
+      "description": "",
+      "isbn": null,
+      "genre": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 4,
+    "fields": {
+      "title": "Волевой поступок",
+      "author": 3,
+      "publishing_house": "Москва: Издательство \"Вагриус\"",
+      "year": 1995,
+      "pages": 559,
+      "language": 1,
+      "description": "",
+      "isbn": null,
+      "genre": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 5,
+    "fields": {
+      "title": "Генрих Лейхтвейс, благородный разбойник",
+      "author": 4,
+      "publishing_house": "Краснодар: Издательство \"Бакай\"",
+      "year": 1994,
+      "pages": 559,
+      "language": 1,
+      "description": "",
+      "isbn": "5-88627-030-2",
+      "genre": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 6,
+    "fields": {
+      "title": "Джейн Эйр",
+      "author": 5,
+      "publishing_house": "М.: Эксмо",
+      "year": 2005,
+      "pages": 960,
+      "language": 1,
+      "description": "",
+      "isbn": "5-699-10202-7",
+      "genre": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 7,
+    "fields": {
+      "title": "Приключения Шерлока Холмса",
+      "author": 6,
+      "publishing_house": "СПб.: Амфора",
+      "year": 2013,
+      "pages": 351,
+      "language": 1,
+      "description": "",
+      "isbn": "978-5-367-02667-2",
+      "genre": [
+        8
+      ]
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 8,
+    "fields": {
+      "title": "Евгений Онегин",
+      "author": 7,
+      "publishing_house": "М.: Эксмо",
+      "year": 2000,
+      "pages": 230,
+      "language": 1,
+      "description": "",
+      "isbn": null,
+      "genre": [
+        12
+      ]
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 9,
+    "fields": {
+      "title": "Приключения Гекльберри Финна",
+      "author": 8,
+      "publishing_house": "М.: Эксмо",
+      "year": 2000,
+      "pages": 250,
+      "language": 2,
+      "description": "",
+      "isbn": null,
+      "genre": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "library.instancebook",
+    "pk": 1,
+    "fields": {
+      "book": 1,
+      "inventory": "1-1-100000",
+      "status": "Выдана"
+    }
+  },
+  {
+    "model": "library.instancebook",
+    "pk": 2,
+    "fields": {
+      "book": 2,
+      "inventory": "1-2-100000",
+      "status": "Выдана"
+    }
+  },
+  {
+    "model": "library.instancebook",
+    "pk": 3,
+    "fields": {
+      "book": 2,
+      "inventory": "1-2-100001",
+      "status": "В наличии"
+    }
+  },
+  {
+    "model": "library.instancebook",
+    "pk": 4,
+    "fields": {
+      "book": 3,
+      "inventory": "1-2-100013",
+      "status": "Выдана"
+    }
+  },
+  {
+    "model": "library.instancebook",
+    "pk": 5,
+    "fields": {
+      "book": 5,
+      "inventory": "1-2-100014",
+      "status": "Зарезервирована"
+    }
+  },
+  {
+    "model": "library.instancebook",
+    "pk": 6,
+    "fields": {
+      "book": 6,
+      "inventory": "1-2-100015",
+      "status": "Выдана"
+    }
+  },
+  {
+    "model": "library.instancebook",
+    "pk": 7,
+    "fields": {
+      "book": 7,
+      "inventory": "1-2-100016",
+      "status": "На обслуживании"
+    }
+  },
+  {
+    "model": "library.instancebook",
+    "pk": 8,
+    "fields": {
+      "book": 9,
+      "inventory": "1-2-100022",
+      "status": "В наличии"
+    }
+  },
+  {
+    "model": "library.instancebook",
+    "pk": 9,
+    "fields": {
+      "book": 8,
+      "inventory": "1-2-100023",
+      "status": "В наличии"
+    }
+  },
+  {
+    "model": "library.distributionbook",
+    "pk": 1,
+    "fields": {
+      "instance_book": 1,
+      "user": 2,
+      "issue_date": "2024-07-25",
+      "return_date": "2024-07-29",
+      "is_completed": true
+    }
+  },
+  {
+    "model": "library.distributionbook",
+    "pk": 2,
+    "fields": {
+      "instance_book": 2,
+      "user": 2,
+      "issue_date": "2024-07-24",
+      "return_date": "2024-07-29",
+      "is_completed": true
+    }
+  },
+  {
+    "model": "library.distributionbook",
+    "pk": 28,
+    "fields": {
+      "instance_book": 2,
+      "user": 2,
+      "issue_date": "2024-07-25",
+      "return_date": "2024-07-31",
+      "is_completed": true
+    }
+  },
+  {
+    "model": "library.distributionbook",
+    "pk": 29,
+    "fields": {
+      "instance_book": 2,
+      "user": 2,
+      "issue_date": "2024-07-25",
+      "return_date": "2024-07-31",
+      "is_completed": true
+    }
+  },
+  {
+    "model": "library.distributionbook",
+    "pk": 30,
+    "fields": {
+      "instance_book": 1,
+      "user": 1,
+      "issue_date": "2024-07-29",
+      "return_date": "2024-07-31",
+      "is_completed": true
+    }
+  },
+  {
+    "model": "library.distributionbook",
+    "pk": 31,
+    "fields": {
+      "instance_book": 2,
+      "user": 2,
+      "issue_date": "2024-07-29",
+      "return_date": "2024-07-31",
+      "is_completed": true
+    }
+  },
+  {
+    "model": "library.distributionbook",
+    "pk": 33,
+    "fields": {
+      "instance_book": 4,
+      "user": 2,
+      "issue_date": "2024-07-29",
+      "return_date": "2024-08-10",
+      "is_completed": false
+    }
+  },
+  {
+    "model": "library.distributionbook",
+    "pk": 39,
+    "fields": {
+      "instance_book": 6,
+      "user": 2,
+      "issue_date": "2024-07-30",
+      "return_date": "2024-08-07",
+      "is_completed": true
+    }
+  },
+  {
+    "model": "library.distributionbook",
+    "pk": 42,
+    "fields": {
+      "instance_book": 6,
+      "user": 2,
+      "issue_date": "2024-07-30",
+      "return_date": "2024-08-10",
+      "is_completed": false
+    }
+  },
+  {
+    "model": "library.distributionbook",
+    "pk": 43,
+    "fields": {
+      "instance_book": 1,
+      "user": 4,
+      "issue_date": "2024-08-02",
+      "return_date": "2024-08-08",
+      "is_completed": false
+    }
+  },
+  {
+    "model": "library.distributionbook",
+    "pk": 44,
+    "fields": {
+      "instance_book": 2,
+      "user": 4,
+      "issue_date": "2024-08-02",
+      "return_date": "2024-08-08",
+      "is_completed": false
+    }
+  }
+]
