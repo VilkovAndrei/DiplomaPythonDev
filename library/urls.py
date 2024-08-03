@@ -2,12 +2,12 @@ from django.urls import path
 
 from library.apps import LibraryConfig
 
-from library.views import (BookListAPIView, BookCreateAPIView, BookRetrieveAPIView, BookUpdateAPIView, \
+from library.views import (BookListAPIView, BookCreateAPIView, BookRetrieveAPIView, BookUpdateAPIView,
                            BookDestroyAPIView, InstancebookCreateAPIView, InstancebookListAPIView,
-                           InstancebookRetrieveAPIView, \
-                           InstancebookUpdateAPIView, InstancebookDestroyAPIView, DistributionBookCreateAPIView, \
-                           DistributionBookListAPIView, \
-                           DistributionBookRetrieveAPIView, DistributionBookUpdateAPIView, \
+                           InstancebookRetrieveAPIView,
+                           InstancebookUpdateAPIView, InstancebookDestroyAPIView, DistributionBookCreateAPIView,
+                           DistributionBookListAPIView,
+                           DistributionBookRetrieveAPIView, DistributionBookUpdateAPIView,
                            DistributionBookDestroyAPIView, AuthorViewSet, GenreViewSet
                            )
 

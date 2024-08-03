@@ -1,5 +1,3 @@
-from django.shortcuts import get_object_or_404
-from drf_yasg.utils import swagger_auto_schema
 from rest_framework import viewsets, generics
 from rest_framework.permissions import IsAuthenticated
 
@@ -130,9 +128,11 @@ class DistributionBookListAPIView(generics.ListAPIView):
         if user.is_superuser:
             queryset = DistributionBook.objects.select_related('instance_book').all().order_by("id")
         elif user.groups.filter(name='manager').exists():
-            queryset = DistributionBook.objects.select_related('instance_book').filter(is_completed=False).order_by("id")
+            queryset = (DistributionBook.objects.select_related('instance_book').filter(is_completed=False).
+                        order_by("id"))
         else:
-            queryset = DistributionBook.objects.select_related('instance_book').filter(user=user, is_completed=False).order_by("id")
+            queryset = (DistributionBook.objects.select_related('instance_book').filter(user=user, is_completed=False).
+                        order_by("id"))
         return queryset
 
 

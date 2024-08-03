@@ -3,7 +3,7 @@ from rest_framework import serializers
 from rest_framework.fields import SerializerMethodField
 
 from library.models import Book, InstanceBook, DistributionBook, Author, Genre, StatusBook
-from library.validators import ReturnDateValidator
+
 from loguru import logger
 
 
@@ -94,7 +94,7 @@ class DistributionBookSerializer(serializers.ModelSerializer):
         logger.info(f'Статус экземпляра книги id:{instance_book_id} будет обновлён на ВЫДАНА')
         inst_obj = None
         if instance_book_id:
-            inst_obj = InstanceBook.objects.get(id=instance_book_id)
+            inst_obj = get_object_or_404(InstanceBook.objects.get(id=instance_book_id))
             inst_obj.status = StatusBook.ISSUED
             inst_obj.save()
             logger.info(f'Статус экземпляра книги {inst_obj} обновлён на ВЫДАНА')

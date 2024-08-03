@@ -38,12 +38,12 @@ def send_mailing():
                         recipient_list=[current_user.email],
                         fail_silently=False
                 )
-                server_response = (f"Напоминание пользователю {current_user.email} о сроке возврата книги"
+                server_response = (f"Сообщение пользователю {current_user.email} о сроке возврата книги"
                                    f" {current_inctance_book} отправлено успешно.")
                 logger.info(server_response)
 
             except smtplib.SMTPResponseException as response:
-                server_response = f"Напоминание пользователю {current_user.email} о сроке возврата книги" + str(response)
+                server_response = f"Сообщение пользователю {current_user.email} о сроке возврата книги" + str(response)
                 logger.info(server_response)
 
         previous_user = current_user

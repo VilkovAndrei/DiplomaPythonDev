@@ -37,7 +37,6 @@ class Author(models.Model):
     def __str__(self):
         return '%s %s' % (self.last_name, self.first_name)
 
-
     class Meta:
         verbose_name = 'Автор'
         verbose_name_plural = 'Авторы'
@@ -58,7 +57,7 @@ class Genre(models.Model):
 class Book(models.Model):
     """Модель книги"""
     title = models.CharField(max_length=255, verbose_name='Название')
-    author = models.ForeignKey(Author, related_name="books",on_delete=models.CASCADE, verbose_name='Автор',
+    author = models.ForeignKey(Author, related_name="books", on_delete=models.CASCADE, verbose_name='Автор',
                                **NULLABLE)
     genre = models.ManyToManyField(Genre, verbose_name='Жанр', related_name='books')
     publishing_house = models.CharField(max_length=100, verbose_name='Издательство')
