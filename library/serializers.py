@@ -79,7 +79,7 @@ class InstanceBookSerializer(serializers.ModelSerializer):
 
 
 class DistributionBookSerializer(serializers.ModelSerializer):
-    instance_book = InstanceBookSerializer(read_only=True)
+    # instance_book = InstanceBookSerializer(read_only=True)
 
     class Meta:
         model = DistributionBook
@@ -94,7 +94,7 @@ class DistributionBookSerializer(serializers.ModelSerializer):
         logger.info(f'Статус экземпляра книги id:{instance_book_id} будет обновлён на ВЫДАНА')
         inst_obj = None
         if instance_book_id:
-            inst_obj = get_object_or_404(InstanceBook.objects.get(id=instance_book_id))
+            inst_obj = InstanceBook.objects.get(id=instance_book_id)
             inst_obj.status = StatusBook.ISSUED
             inst_obj.save()
             logger.info(f'Статус экземпляра книги {inst_obj} обновлён на ВЫДАНА')
