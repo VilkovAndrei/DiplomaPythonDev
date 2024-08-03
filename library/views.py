@@ -1,6 +1,7 @@
 from rest_framework import viewsets, generics
 from rest_framework.permissions import IsAuthenticated
 
+from library.filters import BookFilter
 from library.models import Book, InstanceBook, DistributionBook, Author, Genre, StatusBook
 from library.paginators import BooksPagination, GenresPagination, AuthorsPagination, DistributionBooksPagination
 from library.serializers import (BookSerializer, InstanceBookSerializer, DistributionBookSerializer, AuthorSerializer,
@@ -53,6 +54,7 @@ class BookListAPIView(generics.ListAPIView):
     serializer_class = BookSerializer
     permission_classes = [IsAuthenticated]
     pagination_class = BooksPagination
+    filterset_class = BookFilter
 
     def get_queryset(self):
         return get_book_list()
