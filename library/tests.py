@@ -1,6 +1,5 @@
-from django.contrib.auth.models import Permission, Group
+from django.contrib.auth.models import Group
 from rest_framework import status
-from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase, APIClient
 from rest_framework_simplejwt.tokens import RefreshToken
 from users.models import User

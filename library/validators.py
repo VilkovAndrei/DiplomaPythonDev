@@ -1,5 +1,5 @@
 from rest_framework.serializers import ValidationError
-from datetime import datetime, timedelta
+from datetime import datetime
 
 
 class ReturnDateValidator:
